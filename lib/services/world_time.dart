@@ -5,16 +5,17 @@ import 'package:http/http.dart';
 class WorldTime {
   String location;
   String flag;
-  String? time;
+  late String time;
   String url;
 
   WorldTime({required this.location, required this.flag, required this.url});
 
   Future<void> getTime() async {
-    String baseURL = 'http://worldtimeapi.org/api/timezone/';
     // String endURL = 'Asia/Karachi';
     //
     try {
+      String baseURL = 'http://worldtimeapi.org/api/timezone/';
+
       Response response;
       response = await get(Uri.parse(baseURL + url));
 
