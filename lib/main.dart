@@ -8,7 +8,7 @@ void main() {
     debugShowCheckedModeBanner: false,
     initialRoute: '/',
     routes: {
-      '/': (context) => Loading(),
+      '/': (context) => const Loading(),
       '/home': (context) => const Home(),
       '/location': (context) => const ChooseLocation()
     },
