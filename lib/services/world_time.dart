@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:intl/intl.dart';
 import 'package:http/http.dart';
 
 class WorldTime {
@@ -31,7 +31,8 @@ class WorldTime {
       date = date.add(Duration(hours: int.parse(offset)));
       // print(date);
 
-      time = date.toString();
+      // time = date.toString();
+      time = DateFormat.jm().format(date);
     } catch (e) {
       print('caught error: $e');
       time = 'could not get time zone';
