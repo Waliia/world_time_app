@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:world_time_app/services/world_time.dart';
 
 class Loading extends StatefulWidget {
@@ -22,7 +20,8 @@ class _LoadingState extends State<Loading> {
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
       'flag': instance.flag,
-      'time': instance.time
+      'time': instance.time,
+      'isDayTime': instance.isDayTime
     });
   }
 
@@ -35,11 +34,12 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Padding(
-        padding: EdgeInsets.all(50),
-        child: Text('loading'),
-      ),
-    );
+        backgroundColor: Colors.blue.shade800,
+        body: Center(
+          child: SpinKitFadingCircle(
+            color: Colors.white,
+            size: 50.0,
+          ),
+        ));
   }
 }
